@@ -192,7 +192,7 @@
   $:  fat/(map ship room)                               ::  domestic
       hoy/(map ship rung)                               ::  foreign
       ran/rang                                          ::  hashes
-      mon/(map term beam)                               ::  mount points
+      mon/(map term (pair beam ?))                      ::  mount points
       hez/(unit duct)                                   ::  sync duct
   ==                                                    ::
 ::
@@ -313,8 +313,9 @@
 |%
 ++  move  {p/duct q/(wind note gift:able)}              ::  local move
 ++  gift                                                ::  out result <-$
-      $%  {$ergo p/@tas q/mode}                         ::  version update
-          {$hill p/(list @tas)}                         ::  mount points
+      $%  {$dirk p/@tas}                                ::  mark mount dirty
+          {$ergo p/@tas q/mode}                         ::  version update
+          {$hill p/(list (pair @tas ?))}                ::  mount points
           {$mack p/(unit tang)}                         ::  ack
           {$mass p/mass}                                ::  memory usage
           {$mere p/(each (set path) (pair term tang))}  ::  merge result
@@ -713,7 +714,7 @@
     ^-  (map term (pair @ud (set path)))
     %-  malt  ^-  (list (trel term @ud (set path)))
     %+  murn  (~(tap by mon))
-    |=  {nam/term bem/beam}
+    |=  {nam/term bem/beam wri/?}
     ^-  (unit (trel term @ud (set path)))
     =-  ?~(- ~ `[nam (lent s.bem) (silt `(list path)`-)])
     %+  skim  can
@@ -723,9 +724,11 @@
   ::  Initializes a new mount point.
   ::
   ++  mont
-    |=  {pot/term pax/path}
+    |=  {pot/term bem/beam}
     ^+  +>
-    =+  can=(turn (~(tap by q:(aeon-to-yaki:ze let.dom))) head)
+    =+  pax=s.bem
+    =+  cas=(need (case-to-aeon:ze r.bem))
+    =+  can=(turn (~(tap by q:(aeon-to-yaki:ze cas))) head)
     =+  mus=(skim can |=(paf/path =(pax (scag (lent pax) paf))))
     ?~  mus
       +>.$
@@ -738,7 +741,7 @@
         ^-  (pair silk:^ford silk:^ford)
         :-  [%$ %path !>(a)]
         :+  %cast  %mime
-        =+  (need (need (read-x:ze let.dom a)))
+        =+  (need (need (read-x:ze cas a)))
         ?:  ?=($& -<)
           [%$ p.-]
         (lobe-to-silk:ze a p.-)
@@ -3264,7 +3267,10 @@
   ?-    -.q.hic
       $boat
     :_  ..^$
-    [hen %give %hill (turn (~(tap by mon.ruf)) head)]~
+    :~
+      :^  hen  %give  %hill
+      (turn (~(tap by mon.ruf)) |=({nam/term beam wri/?} [nam wri]))
+    ==
   ::
       $drop
     =^  mos  ruf
@@ -3297,12 +3303,12 @@
       $into
     =.  hez.ruf  `hen
     :_  ..^$
-    =+  bem=(~(get by mon.ruf) p.q.hic)
-    ?:  &(?=($~ bem) !=(%$ p.q.hic))
+    =+  mot=(~(get by mon.ruf) p.q.hic)
+    ?:  &(?=($~ mot) !=(%$ p.q.hic))
       ~|([%bad-mount-point-from-unix p.q.hic] !!)
     =+  ^-  bem/beam
-        ?^  bem
-          u.bem
+        ?^  mot
+          p.u.mot
         [[?>(?=(^ fat.ruf) p.n.fat.ruf) %base %ud 1] ~]
     =+  rom=(~(get by fat.ruf) p.bem)
     ?~  rom
@@ -3341,17 +3347,29 @@
       ~&  [%already-mounted pot]
       [~ ..^$]
     =.  mon.ruf
-      (~(put by mon.ruf) p.q.hic [q.q.hic r.q.hic %ud 0] (flop s.q.hic))
-    =+  yar=(~(get by fat.ruf) q.q.hic)
+      %+  ~(put by mon.ruf)  p.q.hic
+      :-  [[p.q.q.hic q.q.q.hic r.q.q.hic] s.q.q.hic]
+          r.q.hic
+    =+  yar=(~(get by fat.ruf) p.q.q.hic)
     ?~  yar
       [~ ..^$]
-    =+  dos=(~(get by dos.u.yar) r.q.hic)
+    =+  dos=(~(get by dos.u.yar) q.q.q.hic)
     ?~  dos
       [~ ..^$]
     =^  mos  ruf
-      =+  den=((de now hen ruf) [. .]:q.q.hic r.q.hic)
-      abet:(mont:den p.q.hic s.q.hic)
+      =+  den=((de now hen ruf) [. .]:p.q.q.hic q.q.q.hic)
+      abet:(mont:den p.q.hic q.q.hic)
     [mos ..^$]
+  ::
+      $dirk
+    ?~  hez.ruf
+      ~&  %no-sync-duct
+      [~ ..^$]
+    ?.  (~(has by mon.ruf) p.q.hic)
+      ~&  [%not-mounted p.q.hic]
+      [~ ..^$]
+    :-  ~[[u.hez.ruf %give %dirk p.q.hic]]
+        ..^$
   ::
       $ogre
     ?~  hez.ruf
@@ -3371,7 +3389,7 @@
         ==
     %+  turn
       (skim (~(tap by mon.ruf)) (corl (cury test p.q.hic) tail))
-    |=  {pot/term bem/beam}
+    |=  {pot/term bem/beam wri/?}
     [u.hez.ruf %give %ogre pot]
   ::
       $warp

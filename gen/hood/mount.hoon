@@ -8,10 +8,15 @@
   ::
 :-  %say
 |=  $:  {now/@da eny/@uvJ bec/beak}
-        {{pax/path pot/$@($~ {v/@tas $~})} $~}
+        {{mod/?($out $in) pax/path pot/$@($~ {v/@tas $~})} $~}
     ==
 ?~  pot
   =+  bem=(need (de-beam:format pax))
   $(pot ~[?^(s.bem i.s.bem q.bem)])
+=/  wri
+?-  mod
+  $out  |
+  $in   &
+==
 :-  %kiln-mount
-[pax v.pot]
+[pax v.pot wri]
