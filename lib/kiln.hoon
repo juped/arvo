@@ -33,6 +33,7 @@
 ++  kiln-mount                                          ::
     $:  pax/path                                        ::
         pot/term                                        ::
+        wri/?                                           ::
     ==                                                  ::
 ++  kiln-unmount  $@(term {knot path})                  ::
 ++  kiln-sync                                           ::
@@ -63,7 +64,7 @@
       $%  {$exec wire @p $~ {beak silk:^ford}}                ::
           {$drop wire @p @tas}                          ::
           {$info wire @p @tas nori}                     ::
-          {$mont wire @tas beam}                        ::
+          {$mont wire @tas beam ?}                      ::
           {$dirk wire @tas}                             ::
           {$ogre wire $@(@tas beam)}                    ::
           {$merg wire @p @tas @p @tas case germ}        ::
@@ -105,7 +106,7 @@
   ?~  bem
     =+  "can't mount bad path: {<pax>}"
     abet:(spam leaf+- ~)
-  abet:(emit %mont /mount pot u.bem)
+  abet:(emit %mont /mount pot u.bem wri)
 ::
 ++  poke-unmount
   |=  mon/kiln-unmount

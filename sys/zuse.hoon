@@ -290,7 +290,7 @@
     ++  gift                                            ::  out result <-$
       $%  {$dirk p/@tas}                                ::  mark mount dirty
           {$ergo p/@tas q/mode}                         ::  version update
-          {$hill p/(list @tas)}                         ::  mount points
+          {$hill p/(list (pair @tas ?))}                ::  mount points
           {$mack p/(unit tang)}                         ::  ack
           {$mass p/mass}                                ::  memory usage
           {$mere p/(each (set path) (pair term tang))}  ::  merge result
@@ -305,7 +305,7 @@
           {$init p/@p}                                  ::  report install
           {$into p/desk q/? r/mode}                     ::  external edit
           {$merg p/@p q/desk r/@p s/desk t/case u/germ} ::  merge desks
-          {$mont p/desk q/beam}                         ::  mount to unix
+          {$mont p/desk q/beam r/?}                     ::  mount to unix
           {$dirk p/desk}                                ::  mark mount dirty
           {$ogre p/$@(desk beam)}                       ::  delete mount point
           {$warp p/sock q/riff}                         ::  file request
